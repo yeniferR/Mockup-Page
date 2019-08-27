@@ -6,7 +6,8 @@ body,html{
 }
 
 .bg-image{
-    /* background-image: url("../imagenes/fondo1.jpg"); */
+    /* style="background-image: url(https://source.unsplash.com/random)" */
+    background-image: url("https://source.unsplash.com/random");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
