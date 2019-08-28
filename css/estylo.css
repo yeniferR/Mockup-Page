@@ -43,7 +43,7 @@ body,html{
 
 .text p, .footer-text{
     text-align: left;
-    color: #737373;
+    /* color: #737373; */
     font-size: 14px;
     font-weight: normal;
 }
