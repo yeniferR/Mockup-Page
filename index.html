@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/estylo.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <title>Document</title>
+    <script src="js/angular.min.js"></script>
+    <title>Proto</title>
 </head>
-<body onload="setRandomColor()" >
-        <div id="ia" class="bg-image" style="background-image: url(https://source.unsplash.com/random)"></div>
+<body ng-app ="randomColor" ng-controller="myController" >
+ <div id="ia" class="bg-image"></div>
     <div  class="box-text">
-        <div id="color" class="text">
+        <div id="color" class="text" style="background-color: {{getRandomColor()}}">
             <div class="logo-img">
                     <img src="imagenes/logo-protoio.png" class="logo" alt="logo">
             </div>
@@ -24,50 +24,19 @@
    
  
     <script>
-     
-function getRandomColor() {
-//  var letters = '0123456789ABCDEF';
-//   var color = '#';
-//   for (var i = 0; i < 6; i++) {
-//     color += letters[Math.floor(Math.random() * 16)];
-//   }
-//   return color;
-
-  var letters = '0123456789';
-  var r = Math.floor(Math.random()*256);          
-  var g = Math.floor(Math.random()*256);          
-  var b = Math.floor(Math.random()*256);          
-  var rgb = 'rgba(' + r + ',' + g + ',' + b + ','+'0.8' + ')'; // Collect all to a string
-
-  return rgb;
-}
-
-
-
-function setRandomColor() {
-  $("#color").css("background-color", getRandomColor());
-}
-
-
-// angular.module('myApp', ['ngSanitize'])
-//     .controller('dummy', ['$scope', function ($scope) {
     
-//     var getRandomColor = function () {
 
-//         return {
-//             borderLeft: '2px solid #' + Math.floor(Math.random()*16777215).toString(16)
-//         }
-//     };
-        
-//     $scope.customerData = [{
-//         name: "Mike",
-//         color: getRandomColor()
-//     }, {
-//         name: "Tom",
-//         color: getRandomColor()
-//     }];
+var app = angular.module('randomColor', []);
+     app.controller('myController', function ($scope, $http) {
+        $scope.getRandomColor = function(){
+        var letters = '0123456789';
+  		var r = Math.floor(Math.random()*256);          
+  		var g = Math.floor(Math.random()*256);          
+  		var b = Math.floor(Math.random()*256);          
+  		var rgb = 'rgba(' + r + ',' + g + ',' + b + ','+'0.8' + ')'; 
+        return rgb;
+}});
 
-// }]);
     </script>
 </body>
 </html>
